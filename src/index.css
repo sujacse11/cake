@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* Fallback local declarations in case the user manually places the files in src/assets/fonts/ later */
+@font-face {
+  font-family: 'Plus Jakarta Sans Local';
+  src: url('./assets/fonts/PlusJakartaSans-Regular.woff2') format('woff2'),
+       url('./assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans Local';
+  src: url('./assets/fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
+       url('./assets/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans Local';
+  src: url('./assets/fonts/DMSans-Regular.woff2') format('woff2'),
+       url('./assets/fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans Local';
+  src: url('./assets/fonts/DMSans-Bold.woff2') format('woff2'),
+       url('./assets/fonts/DMSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #F6BCD1;
+  --color-primary-dark: #E5A8BD;
+  --color-primary-light: #FCE7EE;
+  --color-accent: #E03E6B; /* Deep vibrant pink for buttons and focus elements */
+  --color-accent-hover: #C22F56;
+  --color-bg: #FCF8F7; /* Sweet, warm cream-pink background */
+  --color-card: #FFFFFF;
+  --color-text-dark: #3E3532; /* Rich dark charcoal-brown */
+  --color-text-muted: #7A6F6C;
+  --color-star: #FFB300;
+  --color-success: #2E7D32;
+  --color-border: #F3EAE7;
+  
+  --font-headings: 'Plus Jakarta Sans', 'Plus Jakarta Sans Local', sans-serif;
+  --font-body: 'DM Sans', 'DM Sans Local', sans-serif;
+  
+  --shadow-sm: 0 2px 8px rgba(62, 53, 50, 0.04);
+  --shadow-md: 0 8px 20px rgba(62, 53, 50, 0.06);
+  --shadow-lg: 0 16px 36px rgba(62, 53, 50, 0.1);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-dark);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
+/* App Wrapper & Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Common Layout Utilities */
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.heading-lg {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .heading-lg {
+    font-size: 2rem;
+  }
+  .section-padding {
+    padding: 50px 0;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 48px auto;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  gap: 8px;
+  font-family: var(--font-headings);
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 62, 107, 0.2);
+}
+
+.btn-secondary {
+  background-color: var(--color-primary-light);
+  color: var(--color-accent);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background-color: #FFFFFF;
+  color: var(--color-text-dark);
+}
+
+.btn-white:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================
+   Comprehensive Responsive Styling System
+   ========================================== */
+
+/* 1. Large Desktops & PCs (min-width: 1400px) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .heading-lg {
+    font-size: 3.2rem;
+  }
+}
+
+/* 2. Laptops & Desktop Computers (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+  .heading-lg {
+    font-size: 2.6rem;
+  }
+}
+
+/* 3. Tablets & IPads (max-width: 992px) */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  .heading-lg {
+    font-size: 2.4rem;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  /* Hero Section Table Override */
+  .hero-container-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 36px;
+  }
+  .hero-left-align {
+    align-items: center !important;
+  }
+  .hero-desc-center {
+    margin: 0 auto;
+  }
+  
+  /* Cakes Page Header */
+  .cakes-header-grid {
+    gap: 20px !important;
+  }
+  .cakes-header-grid img {
+    height: 260px !important;
+  }
+  
+  /* Pastries Page Header */
+  .pastries-header-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    height: auto !important;
+  }
+  .pastries-header-grid > div {
+    height: 140px !important;
+  }
+}
+
+/* 4. Mobile Devices & Smart Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 16px;
+  }
+  .heading-lg {
+    font-size: 2rem;
+  }
+  .section-padding {
+    padding: 48px 0;
+  }
+  
+  /* Cakes Page Header Vertical Stack */
+  .cakes-header-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .cakes-header-grid > div {
+    height: 200px !important;
+  }
+
+  /* Testimonials and Product Grids adjustment */
+  .product-grid-overrides {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  }
+  
+  /* Make category tab buttons scrollable horizontally on mobile */
+  .scrollable-tabs {
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    padding: 8px 4px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 30px !important;
+  }
+  .scrollable-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  .scrollable-tabs button {
+    flex-shrink: 0;
+  }
+  
+  /* Event Booking Section Mobile wrap */
+  .event-flex-wrap {
+    flex-direction: column-reverse !important;
+    gap: 40px !important;
+  }
+  .event-flex-wrap img {
+    height: 180px !important;
+  }
+  
+  /* Checkout layout mobile wrap */
+  .checkout-layout-wrap {
+    flex-direction: column !important;
+  }
+  .checkout-sidebar-sticky {
+    position: static !important;
+  }
+}
+
+/* 5. Extra Small Mobile Devices & Portrait Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .heading-lg {
+    font-size: 1.7rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    width: 100%; /* Full-width buttons on small mobile */
+  }
+  
+  /* Product Grids full width */
+  .product-grid-overrides, .cakes-grid-overrides, .pastries-grid-overrides {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  .bts-grid-overrides {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .testimonials-grid-overrides {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Pastries Header Grid */
+  .pastries-header-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pastries-header-grid > div {
+    height: 160px !important;
+  }
+  
+  /* Booking Modal overlay padding adjustment */
+  .custom-modal {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+  .custom-modal h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  /* Checkout Forms columns */
+  .checkout-form-grid {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+}
+
