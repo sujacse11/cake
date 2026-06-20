@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+// 1. Change BrowserRouter to HashRouter here:
+import { HashRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import App from './App.jsx';
@@ -8,12 +9,13 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* 2. Change the tags here to HashRouter: */}
+    <HashRouter>
       <AuthProvider>
         <CartProvider>
           <App />
         </CartProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
